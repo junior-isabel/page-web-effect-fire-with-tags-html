@@ -15,10 +15,7 @@ for (let i = 0; i < width; i++) {
 }
 
 const calcularPropagacao = () => {
-
-
-    for (let c = 0; c < height - 1; c++) {
-
+    for (let c = 0; c < height - 1; c++) 
         for (let l = 0; l < width; l++) {
 
             let decay = Math.floor(Math.random() * 3);
@@ -28,8 +25,6 @@ const calcularPropagacao = () => {
             arrayPropagacao[indexPropagacao - decay] = propagacaofire > 0 ? propagacaofire : 0;
 
         }
-    }
-
     renderFire();
 }
 
@@ -43,8 +38,6 @@ const renderFire = () => {
             intensidade = arrayPropagacao[indexFire];
             const color = fireColorsPalette[intensidade];
             const styleColor = `${color.r},${color.g},${color.b}`;
-            //html += `<td style="background-color:rgb(${styleColor})">${arrayPropagacao[indexFire]}<span class="index-fire">${indexFire}</span></td>`;
-
             html += `<td style="background-color:rgb(${styleColor})"><span class="index-fire"></span></td>`;
         }
         html += "</tr>";
@@ -53,14 +46,10 @@ const renderFire = () => {
     document.getElementById("effect-canvas").innerHTML = html;
 }
 
-
 const start = () => {
-
     calcularPropagacao();
     renderFire();
     setInterval(calcularPropagacao, 50);
 }
-
-
 
 start();
